@@ -1,3 +1,48 @@
+- name: Apertus 2509
+  description: Apertus 2509 family by swiss-ai, base and instruct variants in 8B and 70B with 65k context.
+  home: https://huggingface.co/swiss-ai
+  categories:
+    - llm
+  capabilities:
+    - context/64K
+  sizes: [8, 70]
+  templates:
+    - quantizations: ["BF16"]
+      sizes: [8]
+      source: huggingface
+      huggingface_repo_id: swiss-ai/Apertus-8B-2509
+      replicas: 1
+      backend: vllm
+      backend_parameters:
+        - --trust-remote-code
+        - --max-model-len=65536
+    - quantizations: ["BF16"]
+      sizes: [8]
+      source: huggingface
+      huggingface_repo_id: swiss-ai/Apertus-8B-Instruct-2509
+      replicas: 1
+      backend: vllm
+      backend_parameters:
+        - --trust-remote-code
+        - --max-model-len=65536
+    - quantizations: ["BF16"]
+      sizes: [70]
+      source: huggingface
+      huggingface_repo_id: swiss-ai/Apertus-70B-2509
+      replicas: 1
+      backend: vllm
+      backend_parameters:
+        - --trust-remote-code
+        - --max-model-len=65536
+    - quantizations: ["BF16"]
+      sizes: [70]
+      source: huggingface
+      huggingface_repo_id: swiss-ai/Apertus-70B-Instruct-2509
+      replicas: 1
+      backend: vllm
+      backend_parameters:
+        - --trust-remote-code
+        - --max-model-len=65536
 - name: Llama4
   description: The Llama 4 collection of models are natively multimodal AI models that enable text and multimodal experiences. These models leverage a mixture-of-experts architecture to offer industry-leading performance in text and image understanding.
   home: https://www.llama.com/
